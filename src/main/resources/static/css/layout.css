@@ -16,6 +16,9 @@ header{
     justify-content: space-between;
     padding: 10px;
 }
+nav a{
+    margin: 15px;
+}
 .todo-list__list{
     display: flex;
     flex-direction: column;
