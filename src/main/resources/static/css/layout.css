@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+    grid-template-rows: 150px auto;
+    width: 90%;
+    max-width: 1000px;
+    margin: 10px auto;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.todo-list__list{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+.todo-list__item{
+    display:flex;
+    height: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+.todo-list__item img{
+    height: 1rem;
+}
+.todo-list__title{
+    margin-right: auto;
+}
