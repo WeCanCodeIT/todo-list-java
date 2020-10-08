@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+        <h1>We Can Code IT Todo List</h1>
+        <nav>
+          <a href="/home.html">Home</a>
+          <a href="/hashtags.html">Hashtags</a>
+        </nav>
+      </header>
+      <main>
+          <h2 th:text="${owner.name} + '\'s Todo List'" class="todo-list__title">Ben's Todo List</h2>
+          <ul class="todo-list__list">
+              <li th:each="item : ${owner.items}"  class="todo-list__item">
+                  <a th:text="${item.title}" class="todo-list__link todo-list__title" href="/grade-homework.html">Grade Homework</a>
+                  <input type="checkbox" checked>
+                  <button>Mark Done/Undone</button>
+                  <img src="/images/trash-512.webp">
+              </li>
+          </ul>
+      </main>
+    </div>
+</body>
+</html>
