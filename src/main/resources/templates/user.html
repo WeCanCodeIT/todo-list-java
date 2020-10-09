@@ -21,7 +21,7 @@
           <h2 th:text="${owner.name} + '\'s Todo List'" class="todo-list__title">Ben's Todo List</h2>
           <ul class="todo-list__list">
               <li th:each="item : ${owner.items}"  class="todo-list__item">
-                  <a th:text="${item.title}" class="todo-list__link todo-list__title" href="/grade-homework.html">Grade Homework</a>
+                  <a th:text="${item.title}" class="todo-list__link todo-list__title" th:href="'/todo-item/'+${item.id}">Grade Homework</a>
                   <input type="checkbox" checked>
                   <button>Mark Done/Undone</button>
                   <img src="/images/trash-512.webp">

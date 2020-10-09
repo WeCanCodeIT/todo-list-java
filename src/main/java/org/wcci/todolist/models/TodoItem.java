@@ -1,4 +1,4 @@
-package org.wcci.todolist;
+package org.wcci.todolist.models;
 
 public class TodoItem {
 

@@ -1,4 +1,6 @@
-package org.wcci.todolist;
+package org.wcci.todolist.models;
+
+import org.wcci.todolist.models.TodoItem;
 
 import java.util.Collection;
 
