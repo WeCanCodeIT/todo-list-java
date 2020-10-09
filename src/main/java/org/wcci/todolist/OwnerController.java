@@ -9,7 +9,7 @@ import java.util.*;
 
 @Controller
 public class OwnerController {
-    Map<Long,TodoOwner> ownerList = new HashMap<>();
+    Map<Long, TodoOwner> ownerList = new HashMap<>();
 
     public OwnerController() {
 
@@ -22,6 +22,7 @@ public class OwnerController {
         TodoOwner amy = new TodoOwner("Amy", Collections.EMPTY_LIST, 4);
 
         bensTodos.add(new TodoItem(ben, "Clean Dishes", "Today", "Amy", "Clean the dishes in the sink."));
+
         ownerList.put(ben.getId(), ben);
         ownerList.put(bruce.getId(), bruce);
         ownerList.put(bosco.getId(), bosco);
@@ -36,7 +37,7 @@ public class OwnerController {
     }
 
     @RequestMapping("owner/{id}")
-    public String displaySingleOwner(Model model, @PathVariable Long id){
+    public String displaySingleOwner(Model model, @PathVariable Long id) {
         model.addAttribute("owner", ownerList.get(id));
         return "user";
     }
