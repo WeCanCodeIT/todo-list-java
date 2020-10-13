@@ -1,18 +1,25 @@
 package org.wcci.todolist.models;
 
-import org.wcci.todolist.models.TodoItem;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 
-public class TodoOwner {
+@Entity
+public class  TodoOwner {
+
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
+    @OneToMany(mappedBy = "owner")
     private Collection<TodoItem> items;
 
-    public TodoOwner(String name, Collection<TodoItem> items, long id) {
-        this.id = id;
+    protected TodoOwner(){}
+
+    public TodoOwner(String name) {
         this.name = name;
-        this.items = items;
     }
 
     public long getId(){
@@ -24,5 +31,31 @@ public class TodoOwner {
 
     public Collection<TodoItem> getItems() {
         return items;
+    }
+
+    @Override
+    public String toString() {
+        return "TodoOwner{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TodoOwner todoOwner = (TodoOwner) o;
+
+        if (id != todoOwner.id) return false;
+        return name != null ? name.equals(todoOwner.name) : todoOwner.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }
