@@ -1,10 +1,10 @@
 package org.wcci.todolist.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import org.wcci.todolist.Hashtag;
+
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class TodoItem {
@@ -18,6 +18,8 @@ public class TodoItem {
     private String urgency;
     private String requester;
     private String description;
+    @ManyToMany(mappedBy = "todoItems")
+    private Collection<Hashtag> hashtags;
 
     protected TodoItem(){}
 
@@ -51,6 +53,10 @@ public class TodoItem {
 
     public String getDescription() {
         return description;
+    }
+
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
     }
 
     @Override

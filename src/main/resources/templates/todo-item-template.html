@@ -28,9 +28,9 @@
         <section class="hashtags">
           <p class="hashtags__header">Hashtags:</p>
           <ul class="hashtags-list">
-            <li class="hashtags-hashtag">#Wonderdog</li>
-            <li class="hashtags-hashtag">#ThirdMeal</li>
-            <li class="hashtags-hashtag">#Bosco</li>
+            <li th:each="hashtag: ${todoItem.hashtags}" class="hashtags-hashtag">
+              <a th:href="'/hashtags/'+ ${hashtag.id}" th:text= "${hashtag.name}">#Wonderdog</a>
+            </li>
           </ul>
         </section>
       </main>
