@@ -37,7 +37,7 @@ public class Populator implements CommandLineRunner {
         ownerStorage.addOwner(ben);
         ownerStorage.addOwner(bruce);
         ownerStorage.addOwner(bosco);
-        ownerStorage.addOwner(amy);
+//        ownerStorage.addOwner(amy);
         ownerStorage.addOwner(cliff);
 
         TodoItem itemToAdd1 = new TodoItem(ben, "Clean Dishes", "Today", "Amy", "Clean the dishes in the sink.");
