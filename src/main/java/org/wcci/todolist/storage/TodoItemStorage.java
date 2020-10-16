@@ -5,6 +5,8 @@ import org.wcci.todolist.TodoItemRepository;
 import org.wcci.todolist.models.TodoItem;
 import org.wcci.todolist.models.TodoOwner;
 
+import java.util.Optional;
+
 
 @Service
 public class TodoItemStorage {
@@ -25,6 +27,12 @@ public class TodoItemStorage {
 
     public TodoItem retrieveTodoItemById(long id) {
 
-        return todoItemRepo.findById(id).get();
+        Optional<TodoItem> retrievedOptional = todoItemRepo.findById(id);
+
+        if(retrievedOptional.isEmpty()){
+            throw new ToDoItemNotFoundException("The todo item with id "+ id + " was not found.");
+        }
+
+        return retrievedOptional.get();
     }
 }
